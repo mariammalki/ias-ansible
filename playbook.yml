@@ -1,0 +1,11 @@
+---
+- name: Infrastructure DevOps avec Ansible
+  hosts: devops
+  become: true
+
+  roles:
+    - common
+    - git
+    - docker
+    - jenkins
+    - k3s

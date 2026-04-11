@@ -1,0 +1,12 @@
+---
+- name: Installer Git
+  apt:
+    name: git
+    state: present
+
+- name: Vérifier Git
+  command: git --version
+  register: git_version
+
+- debug:
+    var: git_version.stdout

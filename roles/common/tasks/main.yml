@@ -1,0 +1,25 @@
+---
+- name: Supprimer tout ancien dépôt Jenkins (sécurité globale)
+  file:
+    path: /etc/apt/sources.list.d/jenkins.list
+    state: absent
+
+- name: Nettoyer le cache APT
+  apt:
+    autoclean: yes
+    autoremove: yes
+
+- name: Mise à jour du cache APT
+  apt:
+    update_cache: yes
+
+- name: Installer paquets de base
+  apt:
+    name:
+      - curl
+      - wget
+      - vim
+      - ca-certificates
+      - gnupg
+      - snapd
+    state: present
